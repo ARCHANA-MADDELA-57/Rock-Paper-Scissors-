@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+        }
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        form {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        input[type="submit"] {
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #FFD700;
+            border: 5px solid #FFD700;
+            color: black;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+            box-shadow: 0 0 10px #FFD700;
+        }
+        p {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock-Paper-Scissors</h1>
+    <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <input type="submit" name="choice" value="rock">
+        <input type="submit" name="choice" value="paper">
+        <input type="submit" name="choice" value="scissors">
+    </form>
+    <p>You chose: {{ player_choice }}</p>
+    <p>Computer chose: {{ computer_choice }}</p>
+    <p>{{ result }}</p>
+</body>
+</html>
